@@ -8,7 +8,7 @@
       "title": "Welcome to PulseKRN news",
       "body": "Announcements from the PulseKRN team will pop up here. Update checks run quietly every 3 hours.",
       "show": "once",
-      "link": "https://github.com/Havenova-x/pulsekrn",
+      "link": "https://pulsekrn.vercel.app/",
       "link_label": "OPEN",
       "link_title": "PulseKRN on GitHub",
       "link_desc": "Downloads, release notes and the latest news."
