@@ -1,0 +1,32 @@
+THREE FILES IN YOUR GITHUB REPO (edit them with the pencil icon on github.com, then Commit)
+
+latest.json  = the update (version, download link, hash, release notes).  Edit LAST when you release.
+news.json    = the BANNER (top of the app) + ANNOUNCEMENTS (pop-ups and the News page).
+ads.json     = the FEATURED STRIP (slim bar at the bottom, always visible while it has an item).
+
+Apps pick up changes within a few minutes of the next check (at start-up, then every 3 hours).
+
+----- news.json -----
+"banner": null          -> no banner shows.  Put an item (same fields as below) to show one.
+                           Users can close it with the X. It only comes back if you give it a NEW id.
+"announcements": [ ... ] -> each one pops up (when the app window is open, never while gaming).
+
+----- fields (news.json items and ads.json items) -----
+id          REQUIRED. Unique name, e.g. "2026-11-sale". Change it to show something again.
+title       Heading.
+body        The message (max ~700 characters).
+date        Shown next to the title, e.g. "2026-11-02".
+level       "info" (blue) | "important" (orange) | "promo" (green)
+show        news.json only.  "once" (default) | "daily" (once a day) | "launch" (each time the app starts)
+            daily/launch popups get a "Don't show again" button so nobody is annoyed.
+popup       news.json only.  false = list it in NEWS only, no popup.
+link        Optional. Must start with https://
+link_label  Button text, e.g. "VISIT"
+link_title  Link preview title.       link_desc  Link preview description.
+image       Optional https picture (PNG/JPG, under 1.5 MB) shown in the popup.
+starts      Optional "2026-11-01"  -> hidden before this day.
+expires     Optional "2026-11-30"  -> hidden after this day. (Use this so old items clean themselves.)
+min_version / max_version   Optional. e.g. "max_version": "2.3.1" -> only people on 2.3.1 or older see it.
+
+Keep the file valid JSON: every item in { }, items separated by commas, no comma after the last item.
+Paste your file into https://jsonlint.com to check it before you Commit.

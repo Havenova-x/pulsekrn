@@ -22,7 +22,7 @@
       if (a) el("pk-dl").href = a.browser_download_url;
     })
     .catch(function () { el("pk-notes").textContent = "Could not load release notes."; });
-  fetch("https://raw.githubusercontent.com/" + repo + "/main/latest.json")
+  fetch("https://raw.githubusercontent.com/" + repo + "/main/news.json")
     .then(function (r) { return r.json(); })
     .then(function (d) {
       var box = el("pk-news"); box.textContent = "";
