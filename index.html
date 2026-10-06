@@ -1,41 +1,449 @@
-<!-- PulseKRN download + news section. Paste anywhere in your website (or save as index.html on GitHub Pages). -->
-<section id="pulsekrn" style="font-family:Consolas,monospace;background:#060a12;color:#d6ecff;padding:24px;border-radius:12px;max-width:760px;margin:auto">
-  <h2 style="color:#00e5ff;margin:0 0 4px">PulseKRN <span id="pk-ver" style="color:#39ff88"></span></h2>
-  <p style="color:#6483a6;margin:0 0 14px">System Command Center for Windows</p>
-  <a id="pk-dl" href="https://github.com/Havenova-x/pulsekrn/releases/latest"
-     style="display:inline-block;background:#39ff88;color:#060a12;font-weight:bold;padding:10px 18px;border-radius:8px;text-decoration:none">Download installer</a>
-  <h3 style="color:#00e5ff;margin:22px 0 6px">What's new</h3>
-  <pre id="pk-notes" style="white-space:pre-wrap;margin:0;color:#d6ecff">Loading...</pre>
-  <h3 style="color:#00e5ff;margin:22px 0 6px">Announcements</h3>
-  <div id="pk-news" style="color:#d6ecff">Loading...</div>
-</section>
-<script>
-(function () {
-  var repo = "Havenova-x/pulsekrn";
-  function el(id) { return document.getElementById(id); }
-  fetch("https://api.github.com/repos/" + repo + "/releases/latest")
-    .then(function (r) { return r.json(); })
-    .then(function (rel) {
-      el("pk-ver").textContent = rel.tag_name || "";
-      el("pk-notes").textContent = rel.body || "See the release page for details.";
-      var a = (rel.assets || []).filter(function (x) { return /\.exe$/i.test(x.name); })[0];
-      if (a) el("pk-dl").href = a.browser_download_url;
-    })
-    .catch(function () { el("pk-notes").textContent = "Could not load release notes."; });
-  fetch("https://raw.githubusercontent.com/" + repo + "/main/news.json")
-    .then(function (r) { return r.json(); })
-    .then(function (d) {
-      var box = el("pk-news"); box.textContent = "";
-      (d.announcements || []).forEach(function (n) {
-        var h = document.createElement("div");
-        h.style.cssText = "color:" + (n.level === "important" ? "#ffb020" : "#39ff88") + ";margin-top:10px";
-        h.textContent = (n.title || "") + "  " + (n.date || "");
-        var p = document.createElement("div");
-        p.textContent = n.body || "";
-        box.appendChild(h); box.appendChild(p);
-      });
-      if (!box.firstChild) box.textContent = "No announcements right now.";
-    })
-    .catch(function () { el("pk-news").textContent = "Could not load announcements."; });
-})();
-</script>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>PulseKRN — Keep Your Windows PC Healthy, Fast & In Check</title>
+  <meta name="description" content="PulseKRN is a Windows system command center built to keep your PC healthy, clean, responsive and under control with live telemetry, safe cleanup, RAM optimisation, Game Mode, security checks and background auto-pilot.">
+  <meta name="keywords" content="PulseKRN, Windows optimizer, PC cleaner, Windows cleaner, RAM optimizer, system monitor, PC health, Windows utility, Game Mode, startup manager, duplicate finder, disk analyzer, network diagnostics, Windows repair, system security">
+  <meta name="author" content="Havenova-x">
+  <meta name="application-name" content="PulseKRN">
+  <meta name="theme-color" content="#060a12">
+  <meta name="color-scheme" content="dark">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="bingbot" content="index, follow">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="generator" content="PulseKRN website">
+  <link rel="canonical" href="https://havenova-x.github.io/pulsekrn/">
+  <link rel="icon" type="image/png" href="PulseKRN.png">
+  <link rel="apple-touch-icon" href="PulseKRN.png">
+
+  <!-- GOOGLE SEARCH CONSOLE VERIFICATION PLACEHOLDER:
+       When Google gives you a tag, paste it directly below this comment, e.g.
+       <meta name="google-site-verification" content="YOUR_GOOGLE_TOKEN_HERE">
+  -->
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PulseKRN">
+  <meta property="og:title" content="PulseKRN — Your PC. In Check.">
+  <meta property="og:description" content="A Windows system command center for cleaning, optimisation, diagnostics, security, Game Mode and background PC health.">
+  <meta property="og:url" content="https://havenova-x.github.io/pulsekrn/">
+  <meta property="og:image" content="https://havenova-x.github.io/pulsekrn/PulseKRN.png">
+  <meta property="og:image:alt" content="PulseKRN logo">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PulseKRN — Your PC. In Check.">
+  <meta name="twitter:description" content="Keep your Windows PC clean, responsive and healthy with PulseKRN.">
+  <meta name="twitter:image" content="https://havenova-x.github.io/pulsekrn/PulseKRN.png">
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"SoftwareApplication",
+    "name":"PulseKRN",
+    "applicationCategory":"UtilitiesApplication",
+    "operatingSystem":"Windows",
+    "softwareVersion":"2.3.1",
+    "description":"Windows system command center for live health telemetry, cleanup, RAM optimisation, diagnostics, security checks, Game Mode and background auto-pilot.",
+    "downloadUrl":"https://github.com/Havenova-x/pulsekrn/releases/latest",
+    "url":"https://havenova-x.github.io/pulsekrn/",
+    "image":"https://havenova-x.github.io/pulsekrn/PulseKRN.png",
+    "author":{"@type":"Organization","name":"Havenova-x","url":"https://github.com/Havenova-x"},
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}
+  }
+  </script>
+
+  <style>
+    :root{
+      --bg:#040810; --bg2:#060a12; --panel:#0a1120; --panel2:#0e182a;
+      --line:#1a2c48; --cyan:#00e5ff; --green:#39ff88; --amber:#ffb020;
+      --red:#ff4d6d; --text:#e6f5ff; --muted:#6f89a7; --white:#fff;
+      --shadow:0 24px 80px rgba(0,0,0,.42); --radius:24px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;background:var(--bg)}
+    body{margin:0;background:
+      radial-gradient(circle at 15% 8%,rgba(0,229,255,.10),transparent 28rem),
+      radial-gradient(circle at 88% 18%,rgba(57,255,136,.08),transparent 28rem),
+      linear-gradient(180deg,#030711 0%,#060a12 45%,#040810 100%);
+      color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      overflow-x:hidden;line-height:1.6}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.13;background-image:
+      linear-gradient(rgba(0,229,255,.08) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(0,229,255,.08) 1px,transparent 1px);
+      background-size:60px 60px;mask-image:linear-gradient(to bottom,black,transparent 75%);z-index:-1}
+    a{color:inherit}
+    button,a.btn{font:inherit}
+    .container{width:min(1180px,calc(100% - 40px));margin:auto}
+    .nav{position:fixed;z-index:50;top:14px;left:50%;transform:translateX(-50%);width:min(1160px,calc(100% - 24px));
+      padding:10px 12px;border:1px solid rgba(0,229,255,.13);background:rgba(5,10,20,.72);backdrop-filter:blur(18px);
+      border-radius:18px;box-shadow:0 12px 40px rgba(0,0,0,.28)}
+    .navin{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:900;letter-spacing:.5px}
+    .brand img{width:34px;height:34px;filter:drop-shadow(0 0 14px rgba(0,229,255,.38))}
+    .brand span{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+    .navlinks{display:flex;gap:5px;align-items:center}
+    .navlinks a{padding:9px 12px;border-radius:11px;text-decoration:none;color:#a9c1da;font-size:13px;font-weight:750}
+    .navlinks a:hover{color:var(--white);background:rgba(0,229,255,.07)}
+    .navdl{background:linear-gradient(135deg,var(--green),#20e1ff)!important;color:#031018!important}
+    .menu{display:none;background:none;border:1px solid var(--line);color:var(--cyan);border-radius:10px;padding:7px 10px}
+    section{position:relative}
+    .hero{min-height:100vh;display:grid;place-items:center;padding:130px 0 80px;overflow:hidden}
+    .hero-grid{display:grid;grid-template-columns:1.06fr .94fr;gap:50px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 11px;border:1px solid rgba(57,255,136,.2);background:rgba(57,255,136,.055);
+      border-radius:999px;color:var(--green);font:700 12px ui-monospace,monospace;letter-spacing:.8px}
+    .pulse-dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 16px var(--green);animation:pulse 1.6s infinite}
+    h1{font-size:clamp(48px,7vw,86px);line-height:.94;letter-spacing:-4px;margin:22px 0 22px;max-width:760px}
+    h1 .glow{color:var(--cyan);text-shadow:0 0 28px rgba(0,229,255,.24)}
+    .lead{font-size:clamp(17px,2vw,21px);color:#9db4ce;max-width:690px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid var(--line);border-radius:13px;padding:13px 18px;text-decoration:none;font-weight:850;cursor:pointer;transition:.25s ease;position:relative;overflow:hidden}
+    .btn:hover{transform:translateY(-2px);border-color:rgba(0,229,255,.45)}
+    .btn-primary{color:#021014;background:linear-gradient(135deg,var(--green),#00e5ff);box-shadow:0 10px 35px rgba(0,229,255,.12)}
+    .btn-ghost{color:#b9cee2;background:rgba(14,24,42,.65)}
+    .hero-meta{display:flex;gap:22px;flex-wrap:wrap;margin-top:25px;color:var(--muted);font:700 12px ui-monospace,monospace}
+    .hero-meta b{color:#d7ebff}
+    .hero-art{position:relative;min-height:520px;display:grid;place-items:center}
+    .orb{position:absolute;width:370px;height:370px;border-radius:50%;background:radial-gradient(circle,rgba(0,229,255,.18),transparent 66%);
+      filter:blur(2px);animation:float 7s ease-in-out infinite}
+    .terminal{width:min(510px,100%);border:1px solid rgba(0,229,255,.25);background:rgba(6,12,23,.82);border-radius:26px;
+      box-shadow:var(--shadow),0 0 80px rgba(0,229,255,.08);overflow:hidden;transform:perspective(1000px) rotateY(-7deg) rotateX(3deg);animation:levitate 6s ease-in-out infinite}
+    .termbar{height:42px;display:flex;align-items:center;gap:7px;padding:0 15px;border-bottom:1px solid var(--line);background:#0a1323}
+    .termbar i{width:8px;height:8px;border-radius:50%;background:#29415f}.termbar i:nth-child(2){background:var(--amber)}.termbar i:nth-child(3){background:var(--green)}
+    .termtitle{margin-left:auto;color:#54708e;font:700 10px ui-monospace,monospace}
+    .screen{padding:22px}
+    .readout{display:flex;justify-content:space-between;align-items:end;margin-bottom:18px}
+    .readout small{color:var(--muted);font:700 10px ui-monospace,monospace}
+    .readout strong{font:800 32px ui-monospace,monospace;color:var(--cyan)}
+    .chart{height:125px;position:relative;border-top:1px solid #12223a;border-bottom:1px solid #12223a;overflow:hidden;background:
+      linear-gradient(rgba(0,229,255,.06) 1px,transparent 1px) 0 0/100% 25%}
+    .chart svg{width:100%;height:100%}
+    .meter{margin-top:15px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .meterbox{padding:13px;border:1px solid var(--line);border-radius:14px;background:#091322}
+    .meterbox label{display:flex;justify-content:space-between;color:var(--muted);font:700 10px ui-monospace,monospace}
+    .track{height:5px;border-radius:9px;background:#16263e;margin-top:9px;overflow:hidden}.track span{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,var(--cyan),var(--green));animation:bar 3s ease-in-out infinite alternate}
+    .section{padding:105px 0}
+    .section-head{max-width:750px;margin-bottom:45px}
+    .kicker{color:var(--cyan);font:800 11px ui-monospace,monospace;letter-spacing:1.8px;text-transform:uppercase}
+    h2{font-size:clamp(34px,5vw,58px);line-height:1.03;letter-spacing:-2px;margin:10px 0 14px}
+    .sub{color:var(--muted);font-size:17px}
+    .mission{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .mission-card{padding:30px;border:1px solid var(--line);background:linear-gradient(145deg,rgba(14,24,42,.86),rgba(6,12,23,.68));border-radius:var(--radius);min-height:240px;position:relative;overflow:hidden}
+    .mission-card:after{content:"";position:absolute;width:160px;height:160px;border-radius:50%;right:-60px;bottom:-70px;background:rgba(0,229,255,.08);filter:blur(5px)}
+    .mission-card h3{font-size:22px;margin:0 0 9px}.mission-card p{color:#829ab5;margin:0;max-width:500px}
+    .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .feature{padding:22px;border:1px solid var(--line);background:rgba(10,17,32,.72);border-radius:20px;transition:.3s;min-height:190px}
+    .feature:hover{transform:translateY(-6px);border-color:rgba(0,229,255,.32);box-shadow:0 18px 55px rgba(0,0,0,.22)}
+    .icon{width:38px;height:38px;display:grid;place-items:center;border-radius:12px;color:var(--cyan);background:rgba(0,229,255,.08);border:1px solid rgba(0,229,255,.13);font-weight:900}
+    .feature h3{font-size:17px;margin:15px 0 7px}.feature p{font-size:14px;color:#7189a6;margin:0}
+    .architecture{display:grid;grid-template-columns:.82fr 1.18fr;gap:25px;align-items:stretch}
+    .control-panel{padding:30px;border:1px solid var(--line);border-radius:26px;background:#08111f}
+    .control-row{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid #13233a}
+    .control-row:last-child{border-bottom:0}.control-row b{font-size:14px}.control-row span{color:var(--muted);font-size:12px}
+    .status{font:800 10px ui-monospace,monospace;color:var(--green);border:1px solid rgba(57,255,136,.18);padding:6px 8px;border-radius:99px;background:rgba(57,255,136,.04)}
+    .diagram{border:1px solid var(--line);border-radius:26px;padding:25px;background:
+      radial-gradient(circle at 50% 45%,rgba(0,229,255,.08),transparent 30%),#07101d;display:grid;place-items:center;min-height:430px}
+    .core{width:180px;height:180px;border-radius:50%;display:grid;place-items:center;text-align:center;border:1px solid rgba(0,229,255,.5);
+      box-shadow:0 0 0 20px rgba(0,229,255,.025),0 0 0 45px rgba(0,229,255,.018),0 0 70px rgba(0,229,255,.1);animation:core 3s infinite}
+    .core b{font:900 22px ui-monospace,monospace;color:var(--cyan)}.core small{color:var(--muted)}
+    .nodes{position:absolute;display:grid;grid-template-columns:repeat(2,1fr);gap:70px;max-width:510px}.node{padding:10px 13px;border:1px solid var(--line);border-radius:12px;background:#0b1626;font:800 10px ui-monospace,monospace;color:#b6cde3}
+    .downloads{background:linear-gradient(180deg,transparent,rgba(0,229,255,.035),transparent)}
+    .download-wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:20px}
+    .download-card{padding:35px;border:1px solid rgba(0,229,255,.23);border-radius:28px;background:
+      radial-gradient(circle at 85% 15%,rgba(57,255,136,.08),transparent 20rem),#07101d;box-shadow:var(--shadow)}
+    .version{display:flex;align-items:center;gap:10px;color:var(--green);font:900 13px ui-monospace,monospace}
+    .version .live{width:8px;height:8px;background:var(--green);border-radius:50%;box-shadow:0 0 12px var(--green)}
+    .bigver{font-size:56px;font-weight:950;letter-spacing:-3px;margin:10px 0}
+    .download-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:25px 0}
+    .statcard{padding:17px;border:1px solid var(--line);border-radius:16px;background:#091423}.statcard small{display:block;color:var(--muted);font:700 10px ui-monospace,monospace;text-transform:uppercase}.statcard b{display:block;margin-top:4px;font-size:21px}
+    .release-notes{white-space:pre-wrap;color:#829ab5;font:13px/1.7 ui-monospace,monospace;max-height:230px;overflow:auto}
+    .older{margin-top:25px}.older button{width:100%;text-align:left;background:none;border:0;color:#d6ecff;font-weight:900;cursor:pointer;padding:12px 0;font-size:14px}.older button span{display:inline-block;transition:.25s}.older.open button span{transform:rotate(90deg)}
+    .old-list{display:none;border-top:1px solid var(--line);padding-top:12px}.older.open .old-list{display:block}
+    .release{display:flex;justify-content:space-between;gap:20px;padding:13px 0;border-bottom:1px solid #13233a;color:#91a9c3}.release b{color:#dceeff}.release a{color:var(--cyan);text-decoration:none;font-size:12px}
+    .privacy{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .privacy-box{padding:28px;border:1px solid var(--line);border-radius:24px;background:rgba(10,17,32,.72)}
+    .privacy-box h3{margin-top:0}.privacy-box p,.privacy-box li{color:#829ab5;font-size:14px}
+    .privacy-screen{position:fixed;inset:0;z-index:100;background:rgba(1,4,9,.83);backdrop-filter:blur(22px);display:grid;place-items:center;padding:20px;transition:.35s}
+    .privacy-screen.hide{opacity:0;visibility:hidden;pointer-events:none}.privacy-modal{width:min(700px,100%);padding:35px;border:1px solid rgba(0,229,255,.28);background:#07101d;border-radius:28px;box-shadow:0 35px 100px #000}
+    .privacy-modal img{width:55px}.privacy-modal h2{font-size:34px}.privacy-modal p{color:#839bb6}.privacy-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+    .news-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.news-card{padding:22px;border:1px solid var(--line);border-radius:20px;background:#091321}.news-card small{color:var(--cyan);font:800 10px ui-monospace,monospace}.news-card h3{margin:8px 0}.news-card p{color:#829ab5;margin:0;font-size:14px}
+    .footer{padding:60px 0 35px;border-top:1px solid #10213a;color:#647f9c}.footer-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}.footer b{color:#cde6ff}.footer a{color:#86a4c3;text-decoration:none}
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:none}
+    .toast{position:fixed;right:18px;bottom:18px;z-index:90;padding:12px 15px;border:1px solid var(--line);background:#091321;color:#cfe7fb;border-radius:12px;box-shadow:var(--shadow);font-size:13px;display:none}
+    @keyframes pulse{50%{transform:scale(1.5);opacity:.55}} @keyframes float{50%{transform:translateY(-20px) scale(1.04)}} @keyframes levitate{50%{transform:perspective(1000px) rotateY(-4deg) rotateX(1deg) translateY(-9px)}} @keyframes bar{to{width:92%}} @keyframes core{50%{box-shadow:0 0 0 27px rgba(0,229,255,.02),0 0 0 58px rgba(0,229,255,.014),0 0 90px rgba(0,229,255,.16)}}
+    @media(max-width:900px){.hero-grid,.architecture,.download-wrap{grid-template-columns:1fr}.hero-art{min-height:420px}.feature-grid{grid-template-columns:1fr 1fr}.mission,.privacy,.news-grid{grid-template-columns:1fr}.navlinks{display:none}.menu{display:block}.nav.open .navlinks{display:flex;position:absolute;top:58px;left:0;right:0;padding:10px;background:rgba(5,10,20,.96);border:1px solid var(--line);border-radius:14px;flex-direction:column}.nav.open .navlinks a{width:100%}}
+    @media(max-width:600px){.container{width:min(100% - 26px,1180px)}.hero{padding-top:115px}.hero-art{min-height:350px}.terminal{transform:none}.feature-grid{grid-template-columns:1fr}.download-stats{grid-template-columns:1fr 1fr}h1{letter-spacing:-2.5px}.section{padding:78px 0}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+  </style>
+</head>
+<body>
+  <div class="privacy-screen" id="privacyScreen" role="dialog" aria-modal="true" aria-labelledby="privacyTitle">
+    <div class="privacy-modal">
+      <img src="PulseKRN.png" alt="PulseKRN">
+      <div class="kicker">PULSEKRN / PRIVACY FIRST</div>
+      <h2 id="privacyTitle">Your PC stays yours.</h2>
+      <p>This website is a product information and download portal. It does not need access to your Windows machine. Release information and download statistics are loaded from GitHub when available.</p>
+      <p>No browser permission is requested for system telemetry. PulseKRN itself is a Windows desktop application; the website cannot inspect your PC.</p>
+      <div class="privacy-actions">
+        <button class="btn btn-primary" onclick="acceptPrivacy()">Continue to PulseKRN</button>
+        <a class="btn btn-ghost" href="#privacy" onclick="acceptPrivacy()">Read privacy details</a>
+      </div>
+    </div>
+  </div>
+
+  <nav class="nav" id="nav">
+    <div class="navin">
+      <a class="brand" href="#top"><img src="PulseKRN.png" alt="PulseKRN logo"><span>PulseKRN</span></a>
+      <button class="menu" onclick="toggleMenu()" aria-label="Open navigation">☰</button>
+      <div class="navlinks">
+        <a href="#features">Features</a><a href="#architecture">How it works</a><a href="#downloads">Downloads</a>
+        <a href="#privacy">Privacy</a><a href="#news">News</a><a class="navdl" href="#downloads">Get PulseKRN</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <div class="eyebrow"><span class="pulse-dot"></span> WINDOWS SYSTEM COMMAND CENTER</div>
+          <h1>Your PC.<br><span class="glow">In check.</span><br>Always.</h1>
+          <p class="lead">PulseKRN watches the health of your Windows machine, clears the clutter, optimises memory, diagnoses problems and gives you control — without turning your PC into a maze of settings.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#downloads">↓ Download PulseKRN</a>
+            <a class="btn btn-ghost" href="#features">Explore the system →</a>
+          </div>
+          <div class="hero-meta"><span>● CURRENT <b id="heroVersion">v2.3.1</b></span><span>● WINDOWS</span><span>● LIGHTWEIGHT</span><span>● BUILT FOR CONTROL</span></div>
+        </div>
+        <div class="hero-art reveal">
+          <div class="orb"></div>
+          <div class="terminal">
+            <div class="termbar"><i></i><i></i><i></i><span class="termtitle">PULSEKRN // LIVE HEALTH TELEMETRY</span></div>
+            <div class="screen">
+              <div class="readout"><div><small>SYSTEM PULSE</small><br><strong id="pulseNumber">87%</strong></div><div style="text-align:right"><small>STATUS</small><br><strong style="color:var(--green);font-size:18px">HEALTHY</strong></div></div>
+              <div class="chart">
+                <svg viewBox="0 0 500 125" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M0 80 C40 70 45 92 78 75 S120 20 145 67 S185 92 210 65 S235 22 260 72 S305 100 332 58 S360 31 390 70 S430 94 460 50 S485 45 500 57" fill="none" stroke="#00e5ff" stroke-width="3"/>
+                  <path d="M0 81 C40 71 45 93 78 76 S120 21 145 68 S185 93 210 66 S235 23 260 73 S305 101 332 59 S360 32 390 71 S430 95 460 51 S485 46 500 58 V125 H0Z" fill="url(#fade)" opacity=".14"/>
+                  <defs><linearGradient id="fade" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#00e5ff"/><stop offset="1" stop-color="#00e5ff" stop-opacity="0"/></linearGradient></defs>
+                </svg>
+              </div>
+              <div class="meter">
+                <div class="meterbox"><label><span>CPU LOAD</span><b>42%</b></label><div class="track"><span style="width:42%"></span></div></div>
+                <div class="meterbox"><label><span>RAM</span><b>61%</b></label><div class="track"><span style="width:61%"></span></div></div>
+                <div class="meterbox"><label><span>STORAGE</span><b>73%</b></label><div class="track"><span style="width:73%"></span></div></div>
+                <div class="meterbox"><label><span>BACKGROUND</span><b style="color:var(--green)">ACTIVE</b></label><div class="track"><span style="width:88%"></span></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container reveal">
+        <div class="section-head"><div class="kicker">THE AIM</div><h2>Make PC health feel like a system, not a chore.</h2><p class="sub">PulseKRN was built around one idea: your computer should tell you what is happening, help you fix it, and quietly stay in shape afterwards.</p></div>
+        <div class="mission">
+          <article class="mission-card"><div class="icon">◉</div><h3>See the pulse</h3><p>Live system telemetry, resource views, process information, disk space, network connections and system information give you a command-center view of Windows.</p></article>
+          <article class="mission-card"><div class="icon">✦</div><h3>Act with purpose</h3><p>Clean temporary clutter, reclaim idle memory, manage startup entries, inspect large files, find duplicates and use Windows repair utilities when something goes wrong.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-head reveal"><div class="kicker">THE MODULES</div><h2>One command center. A lot under the hood.</h2><p class="sub">The website mirrors the real PulseKRN architecture from the desktop application.</p></div>
+        <div class="feature-grid">
+          <article class="feature reveal"><div class="icon">◉</div><h3>Dashboard</h3><p>Central system overview with live resource telemetry, health indicators and quick actions.</p></article>
+          <article class="feature reveal"><div class="icon">✦</div><h3>Cleaner & One-click Boost</h3><p>Scan and clean temporary files, caches, thumbnail/icon cache, crash and memory dumps, and other supported junk targets.</p></article>
+          <article class="feature reveal"><div class="icon">⏻</div><h3>Startup Manager</h3><p>Inspect programs configured to launch with Windows, disable entries and re-enable them using reversible backups.</p></article>
+          <article class="feature reveal"><div class="icon">≣</div><h3>Process Control</h3><p>Inspect running processes with CPU, memory and thread information, locate executables and safely terminate non-protected processes.</p></article>
+          <article class="feature reveal"><div class="icon">▤</div><h3>Installed Apps</h3><p>View installed applications and access the app management/uninstall workflow exposed by PulseKRN.</p></article>
+          <article class="feature reveal"><div class="icon">◔</div><h3>Disk Analyzer</h3><p>Inspect drives, locate large files and understand where storage is being consumed.</p></article>
+          <article class="feature reveal"><div class="icon">⌁</div><h3>Network Diagnostics</h3><p>View traffic and connections, inspect local/public IP information, ping hosts and flush DNS with elevation when required.</p></article>
+          <article class="feature reveal"><div class="icon">▦</div><h3>Duplicate Finder</h3><p>Find identical files by size and fingerprint, select extra copies and keep at least one copy of each group.</p></article>
+          <article class="feature reveal"><div class="icon">⚙</div><h3>Power Tools</h3><p>SFC, DISM, disk check, restore point, network reset, high-performance power, battery report, memory diagnostic and security checks.</p></article>
+          <article class="feature reveal"><div class="icon">✈</div><h3>Auto-pilot</h3><p>Background cleanup, RAM optimisation, storage warnings, update checks and optional Windows-startup/background behaviour.</p></article>
+          <article class="feature reveal"><div class="icon">◈</div><h3>Game Mode</h3><p>Switch to a high-performance power plan, optionally close configured background apps, free memory and pause auto-pilot until gaming ends.</p></article>
+          <article class="feature reveal"><div class="icon">✉</div><h3>News & Updates</h3><p>GitHub-backed release information, announcements, banners, featured notices and secure update installation with SHA-256 verification.</p></article>
+          <article class="feature reveal"><div class="icon">▣</div><h3>System Information</h3><p>System-level information and diagnostics are exposed inside the desktop command center.</p></article>
+          <article class="feature reveal"><div class="icon">⌁</div><h3>Background & Tray</h3><p>PulseKRN can stay available in the system tray while its background engine keeps working.</p></article>
+          <article class="feature reveal"><div class="icon">✓</div><h3>Safety Guardrails</h3><p>Protected Windows processes, elevation prompts, reversible startup changes and verified update packages are part of the design.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="architecture">
+      <div class="container">
+        <div class="section-head reveal"><div class="kicker">HOW IT THINKS</div><h2>Quiet when everything is fine. Visible when action is needed.</h2><p class="sub">The desktop engine runs tracked background jobs, reports progress, shows notifications and pauses the auto-pilot during Game Mode.</p></div>
+        <div class="architecture">
+          <div class="control-panel reveal">
+            <div class="control-row"><div><b>Background engine</b><br><span>Health maintenance while running/minimised</span></div><em class="status">ACTIVE</em></div>
+            <div class="control-row"><div><b>Auto-clean</b><br><span>Temp files & supported dumps</span></div><em class="status">SCHEDULED</em></div>
+            <div class="control-row"><div><b>Memory optimisation</b><br><span>Reclaims idle working sets</span></div><em class="status">SMART</em></div>
+            <div class="control-row"><div><b>Storage watch</b><br><span>Warns before low space becomes a problem</span></div><em class="status">WATCHING</em></div>
+            <div class="control-row"><div><b>Update channel</b><br><span>latest.json + news.json + ads.json</span></div><em class="status">GITHUB</em></div>
+          </div>
+          <div class="diagram reveal">
+            <div style="position:relative;width:100%;height:100%;min-height:380px;display:grid;place-items:center">
+              <div class="core"><div><b>PULSEKRN</b><br><small>CONTROL CORE</small></div></div>
+              <div class="nodes">
+                <div class="node">TELEMETRY</div><div class="node">CLEANUP</div>
+                <div class="node">SECURITY</div><div class="node">GAME MODE</div>
+                <div class="node">NETWORK</div><div class="node">STORAGE</div>
+                <div class="node">UPDATES</div><div class="node">AUTO-PILOT</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section downloads" id="downloads">
+      <div class="container">
+        <div class="section-head reveal"><div class="kicker">DOWNLOAD CENTER</div><h2>Get the current build. See the history.</h2><p class="sub">Release information is pulled directly from the PulseKRN GitHub repository, so the website can stay current without changing the desktop backend.</p></div>
+        <div class="download-wrap">
+          <div class="download-card reveal">
+            <div class="version"><span class="live"></span> LATEST RELEASE <span id="releaseTag">loading…</span></div>
+            <div class="bigver" id="bigVersion">v2.3.1</div>
+            <p id="releaseDate" style="color:var(--muted);margin:0">Checking release channel…</p>
+            <div class="download-stats">
+              <div class="statcard"><small>Total downloads</small><b id="totalDownloads">—</b></div>
+              <div class="statcard"><small>Latest asset</small><b id="assetDownloads">—</b></div>
+              <div class="statcard"><small>Channel</small><b>STABLE</b></div>
+            </div>
+            <a id="downloadBtn" class="btn btn-primary" href="https://github.com/Havenova-x/pulsekrn/releases/latest" target="_blank" rel="noopener">↓ Download installer</a>
+            <a class="btn btn-ghost" style="margin-left:7px" href="https://github.com/Havenova-x/pulsekrn/releases" target="_blank" rel="noopener">All releases ↗</a>
+            <h3 style="margin-top:30px">What's new</h3>
+            <div class="release-notes" id="releaseNotes">Loading release notes…</div>
+            <div class="older" id="olderBox">
+              <button onclick="toggleOlder()">› &nbsp;OLDER VERSIONS</button>
+              <div class="old-list" id="oldList"><div style="color:var(--muted);font-size:13px">Loading version history…</div></div>
+            </div>
+          </div>
+          <div class="download-card reveal">
+            <div class="kicker">LIVE CHANNEL</div>
+            <h3 style="font-size:28px;margin:9px 0">Your website stays connected.</h3>
+            <p style="color:var(--muted)">The original supplied site already used GitHub's latest-release endpoint and the repository's announcement feed. This redesign keeps that same source and expands it into a full download center.</p>
+            <div class="mission-card" style="min-height:auto;margin-top:22px;padding:22px"><h3>Release intelligence</h3><p>Latest tag, release notes, EXE asset, download counts and older versions are read live from GitHub. If GitHub is temporarily unavailable, the page keeps the known version and gives the user a direct releases link.</p></div>
+            <div class="mission-card" style="min-height:auto;margin-top:14px;padding:22px"><h3>Verified updates</h3><p>The desktop app validates the SHA-256 hash of an update package before installing it. The website never replaces or modifies that backend safety flow.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="privacy">
+      <div class="container">
+        <div class="section-head reveal"><div class="kicker">PRIVACY</div><h2>Information should stay where it belongs.</h2><p class="sub">The website is a public information and download layer. It does not have access to your Windows telemetry or PulseKRN's local configuration.</p></div>
+        <div class="privacy">
+          <article class="privacy-box reveal"><h3>Website</h3><ul><li>No browser system-monitoring permissions are requested.</li><li>Release/news information is fetched from public GitHub endpoints.</li><li>Download statistics shown here are GitHub release asset counts.</li><li>No login is required for the download portal.</li></ul></article>
+          <article class="privacy-box reveal"><h3>Desktop app</h3><ul><li>PulseKRN stores its own configuration under the Windows application-data area.</li><li>Background behaviour is controlled by the app's settings.</li><li>Administrator access is requested only for operations that need it.</li><li>Core Windows processes are protected from termination by the process manager.</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="news">
+      <div class="container">
+        <div class="section-head reveal"><div class="kicker">NEWS CHANNEL</div><h2>Announcements without rebuilding the site.</h2><p class="sub">PulseKRN's existing feed model supports announcements, banners, featured items, dates, links and display windows. This page reads the same repository channel.</p></div>
+        <div class="news-grid" id="newsGrid">
+          <article class="news-card"><small>CHANNEL</small><h3>Loading announcements…</h3><p>The page is checking news.json from the PulseKRN repository.</p></article>
+          <article class="news-card"><small>RELEASES</small><h3>Live release feed</h3><p>Version and release notes are loaded from GitHub's public release API.</p></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div><b>PulseKRN</b><br><span>Your PC. In check.</span></div>
+      <div>System Command Center for Windows · <a href="https://github.com/Havenova-x/pulsekrn" target="_blank" rel="noopener">GitHub</a> · <a href="#privacy">Privacy</a></div>
+    </div>
+    <div class="container" style="margin-top:28px;font-size:11px">© <span id="year"></span> PulseKRN / Havenova-x. Website layer only — the desktop application's backend remains separate.</div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const REPO = "Havenova-x/pulsekrn";
+    const API = "https://api.github.com/repos/" + REPO;
+    const RAW = "https://raw.githubusercontent.com/" + REPO + "/main/";
+
+    function $(id){return document.getElementById(id)}
+    function acceptPrivacy(){ localStorage.setItem("pk_privacy_seen","1"); $("privacyScreen").classList.add("hide"); }
+    if(localStorage.getItem("pk_privacy_seen")==="1") $("privacyScreen").classList.add("hide");
+    function toggleMenu(){ $("nav").classList.toggle("open"); }
+    document.querySelectorAll(".navlinks a").forEach(a=>a.addEventListener("click",()=> $("nav").classList.remove("open")));
+    $("year").textContent = new Date().getFullYear();
+
+    const io = new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("visible")}),{threshold:.08});
+    document.querySelectorAll(".reveal").forEach(x=>io.observe(x));
+
+    function fmt(n){
+      n=Number(n||0);
+      if(n<1000)return n.toString();
+      if(n<1e6)return (n/1e3).toFixed(n>=1e5?0:1)+"K";
+      if(n<1e9)return (n/1e6).toFixed(n>=1e8?0:1)+"M";
+      return (n/1e9).toFixed(1)+"B";
+    }
+    function dateFmt(s){try{return new Date(s).toLocaleDateString(undefined,{year:"numeric",month:"short",day:"numeric"})}catch(e){return ""}}
+    function showToast(t){const x=$("toast");x.textContent=t;x.style.display="block";setTimeout(()=>x.style.display="none",3600)}
+
+    async function loadReleases(){
+      try{
+        const latest = await fetch(API+"/releases/latest",{headers:{"Accept":"application/vnd.github+json"}}).then(r=>r.ok?r.json():Promise.reject());
+        const releases = await fetch(API+"/releases?per_page=12",{headers:{"Accept":"application/vnd.github+json"}}).then(r=>r.ok?r.json():[]);
+        const tag=latest.tag_name||"v2.3.1";
+        $("heroVersion").textContent=tag;
+        $("releaseTag").textContent=tag;
+        $("bigVersion").textContent=tag;
+        $("releaseDate").textContent="Published "+dateFmt(latest.published_at||latest.created_at)+" · "+(latest.prerelease?"PRE-RELEASE":"STABLE");
+        $("releaseNotes").textContent=latest.body||"No release notes were published for this release.";
+        const assets=latest.assets||[];
+        const exe=assets.find(a=>/\.exe$/i.test(a.name));
+        $("assetDownloads").textContent=exe?fmt(exe.download_count):"—";
+        const total=releases.reduce((sum,r)=>(sum+(r.assets||[]).reduce((s,a)=>s+(a.download_count||0),0)),0);
+        $("totalDownloads").textContent=fmt(total);
+        if(exe) $("downloadBtn").href=exe.browser_download_url;
+        const old=releases.filter(r=>r.id!==latest.id);
+        $("oldList").innerHTML=old.length?old.map(r=>{
+          const n=(r.assets||[]).reduce((s,a)=>s+(a.download_count||0),0);
+          return `<div class="release"><div><b>${escapeHtml(r.tag_name||r.name||"Release")}</b><br><span>${dateFmt(r.published_at||r.created_at)} · ${fmt(n)} downloads</span></div><a href="${r.html_url}" target="_blank" rel="noopener">VIEW ↗</a></div>`
+        }).join(""):"<div style='color:var(--muted);font-size:13px'>No older releases were returned by GitHub.</div>";
+      }catch(e){
+        $("releaseTag").textContent="offline";
+        $("releaseNotes").textContent="Live release data could not be loaded. Use the releases page to download the current build.";
+        $("oldList").innerHTML="<div style='color:var(--muted);font-size:13px'>GitHub history is temporarily unavailable.</div>";
+      }
+    }
+    function escapeHtml(s){return String(s||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]))}
+    function toggleOlder(){ $("olderBox").classList.toggle("open"); }
+
+    async function loadNews(){
+      try{
+        const d=await fetch(RAW+"news.json",{cache:"no-store"}).then(r=>r.ok?r.json():Promise.reject());
+        const arr=Array.isArray(d.announcements)?d.announcements:[];
+        const banner=d.banner;
+        const items=(banner?[banner]:[]).concat(arr).slice(0,8);
+        $("newsGrid").innerHTML=items.length?items.map(n=>{
+          const level=(n.level||"info").toUpperCase();
+          const title=escapeHtml(n.title||"PulseKRN announcement");
+          const body=escapeHtml(n.body||n.text||"");
+          const date=escapeHtml(n.date||"");
+          const link=n.link&&/^https:\/\//i.test(n.link)?`<p style="margin-top:12px"><a style="color:var(--cyan);text-decoration:none;font-weight:800" href="${n.link}" target="_blank" rel="noopener">${escapeHtml(n.link_label||"OPEN")} ↗</a></p>`:"";
+          return `<article class="news-card"><small>${level}${date?" · "+date:""}</small><h3>${title}</h3><p>${body}</p>${link}</article>`
+        }).join(""):`<article class="news-card"><small>NEWS</small><h3>No announcements right now.</h3><p>Check back for PulseKRN updates and releases.</p></article>`;
+      }catch(e){
+        $("newsGrid").innerHTML=`<article class="news-card"><small>NEWS CHANNEL</small><h3>Announcements unavailable</h3><p>The website could not reach news.json right now. The desktop app's cached feed remains independent.</p></article><article class="news-card"><small>GITHUB</small><h3>Release channel still available</h3><p>Use the Download Center above or open the public releases page.</p></article>`;
+      }
+    }
+    loadReleases(); loadNews();
+
+    // Small living telemetry animation — decorative only, never claims to read the user's PC.
+    setInterval(()=>{
+      const n=$("pulseNumber");
+      if(n){let v=84+Math.floor(Math.random()*11);n.textContent=v+"%"}
+    },1800);
+  </script>
+</body>
+</html>

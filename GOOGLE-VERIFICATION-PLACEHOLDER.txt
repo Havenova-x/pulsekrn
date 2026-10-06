@@ -1,0 +1,2 @@
+Paste the exact Google Search Console verification <meta> tag into index.html where the placeholder comment is located.
+Example format: <meta name="google-site-verification" content="YOUR_TOKEN_HERE">
