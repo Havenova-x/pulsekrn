@@ -15,7 +15,7 @@
   <meta name="bingbot" content="index, follow">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="format-detection" content="telephone=no">
-  <meta name="generator" content="PulseKRN website">
+  <meta name="generator" content="PulseKRN">
   <link rel="canonical" href="https://havenova-x.github.io/pulsekrn/">
   <link rel="icon" type="image/png" href="PulseKRN.png">
   <link rel="apple-touch-icon" href="PulseKRN.png">
@@ -253,7 +253,7 @@
 
     <section class="section" id="features">
       <div class="container">
-        <div class="section-head reveal"><div class="kicker">THE MODULES</div><h2>One command center. A lot under the hood.</h2><p class="sub">The website mirrors the real PulseKRN architecture from the desktop application.</p></div>
+        <div class="section-head reveal"><div class="kicker">THE MODULES</div><h2>One command center. A lot under the hood.</h2><p class="sub">PulseKRN brings essential Windows health, maintenance, diagnostics and performance tools together in one focused command center.</p></div>
         <div class="feature-grid">
           <article class="feature reveal"><div class="icon">◉</div><h3>Dashboard</h3><p>Central system overview with live resource telemetry, health indicators and quick actions.</p></article>
           <article class="feature reveal"><div class="icon">✦</div><h3>Cleaner & One-click Boost</h3><p>Scan and clean temporary files, caches, thumbnail/icon cache, crash and memory dumps, and other supported junk targets.</p></article>
@@ -283,7 +283,7 @@
             <div class="control-row"><div><b>Auto-clean</b><br><span>Temp files & supported dumps</span></div><em class="status">SCHEDULED</em></div>
             <div class="control-row"><div><b>Memory optimisation</b><br><span>Reclaims idle working sets</span></div><em class="status">SMART</em></div>
             <div class="control-row"><div><b>Storage watch</b><br><span>Warns before low space becomes a problem</span></div><em class="status">WATCHING</em></div>
-            <div class="control-row"><div><b>Update channel</b><br><span>latest.json + news.json + ads.json</span></div><em class="status">GITHUB</em></div>
+            <div class="control-row"><div><b>Update channel</b><br><span>Release information and announcements</span></div><em class="status">LIVE</em></div>
           </div>
           <div class="diagram reveal">
             <div style="position:relative;width:100%;height:100%;min-height:380px;display:grid;place-items:center">
@@ -302,7 +302,7 @@
 
     <section class="section downloads" id="downloads">
       <div class="container">
-        <div class="section-head reveal"><div class="kicker">DOWNLOAD CENTER</div><h2>Get the current build. See the history.</h2><p class="sub">Release information is pulled directly from the PulseKRN GitHub repository, so the website can stay current without changing the desktop backend.</p></div>
+        <div class="section-head reveal"><div class="kicker">DOWNLOAD CENTER</div><h2>Get the current build. See the history.</h2><p class="sub">Get the latest PulseKRN release, review what’s new, and explore previous versions from one convenient download center.</p></div>
         <div class="download-wrap">
           <div class="download-card reveal">
             <div class="version"><span class="live"></span> LATEST RELEASE <span id="releaseTag">loading…</span></div>
@@ -323,12 +323,12 @@
             </div>
           </div>
           <div class="download-card reveal">
-            <div class="kicker">LIVE CHANNEL</div>
-            <h3 style="font-size:28px;margin:9px 0">Your website stays connected.</h3>
-            <p style="color:var(--muted)">The original supplied site already used GitHub's latest-release endpoint and the repository's announcement feed. This redesign keeps that same source and expands it into a full download center.</p>
-            <div class="mission-card" style="min-height:auto;margin-top:22px;padding:22px"><h3>Release intelligence</h3><p>Latest tag, release notes, EXE asset, download counts and older versions are read live from GitHub. If GitHub is temporarily unavailable, the page keeps the known version and gives the user a direct releases link.</p></div>
-            <div class="mission-card" style="min-height:auto;margin-top:14px;padding:22px"><h3>Verified updates</h3><p>The desktop app validates the SHA-256 hash of an update package before installing it. The website never replaces or modifies that backend safety flow.</p></div>
-          </div>
+          <div class="download-card reveal">
+            <div class="kicker">RELEASE CHANNEL</div>
+            <h3 style="font-size:28px;margin:9px 0">Stay up to date.</h3>
+            <p style="color:var(--muted)">Find the latest PulseKRN release, review what’s new, check download activity and browse the full version history from one convenient download center.</p>
+            <div class="mission-card" style="min-height:auto;margin-top:22px;padding:22px"><h3>Release information</h3><p>Latest version details, release notes, installer availability and previous releases are kept available through the download center.</p></div>
+            <div class="mission-card" style="min-height:auto;margin-top:14px;padding:22px"><h3>Secure updates</h3><p>PulseKRN uses verified update packages to help ensure that installations are safe and authentic.</p></div>
         </div>
       </div>
     </section>
@@ -345,10 +345,10 @@
 
     <section class="section" id="news">
       <div class="container">
-        <div class="section-head reveal"><div class="kicker">NEWS CHANNEL</div><h2>Announcements without rebuilding the site.</h2><p class="sub">PulseKRN's existing feed model supports announcements, banners, featured items, dates, links and display windows. This page reads the same repository channel.</p></div>
+        <div class="section-head reveal"><div class="kicker">NEWS CHANNEL</div><h2>Announcements without rebuilding the site.</h2><p class="sub">Stay informed about new releases, product updates, improvements and important announcements.</p></div>
         <div class="news-grid" id="newsGrid">
-          <article class="news-card"><small>CHANNEL</small><h3>Loading announcements…</h3><p>The page is checking news.json from the PulseKRN repository.</p></article>
-          <article class="news-card"><small>RELEASES</small><h3>Live release feed</h3><p>Version and release notes are loaded from GitHub's public release API.</p></article>
+          <article class="news-card"><small>UPDATES</small><h3>Loading announcements…</h3><p>Checking for the latest PulseKRN updates.</p></article>
+          <article class="news-card"><small>RELEASES</small><h3>Live release feed</h3><p>Version information and release notes are updated automatically.</p></article>
         </div>
       </div>
     </section>
@@ -359,7 +359,7 @@
       <div><b>PulseKRN</b><br><span>Your PC. In check.</span></div>
       <div>System Command Center for Windows · <a href="https://github.com/Havenova-x/pulsekrn" target="_blank" rel="noopener">GitHub</a> · <a href="#privacy">Privacy</a></div>
     </div>
-    <div class="container" style="margin-top:28px;font-size:11px">© <span id="year"></span> PulseKRN / Havenova-x. Website layer only — the desktop application's backend remains separate.</div>
+    <div class="container" style="margin-top:28px;font-size:11px">© <span id="year"></span> PulseKRN / Havenova-x. All rights reserved.</div>
   </footer>
 
   <div class="toast" id="toast"></div>
@@ -434,7 +434,7 @@
           return `<article class="news-card"><small>${level}${date?" · "+date:""}</small><h3>${title}</h3><p>${body}</p>${link}</article>`
         }).join(""):`<article class="news-card"><small>NEWS</small><h3>No announcements right now.</h3><p>Check back for PulseKRN updates and releases.</p></article>`;
       }catch(e){
-        $("newsGrid").innerHTML=`<article class="news-card"><small>NEWS CHANNEL</small><h3>Announcements unavailable</h3><p>The website could not reach news.json right now. The desktop app's cached feed remains independent.</p></article><article class="news-card"><small>GITHUB</small><h3>Release channel still available</h3><p>Use the Download Center above or open the public releases page.</p></article>`;
+        $("newsGrid").innerHTML=`<article class="news-card"><small>UPDATES</small><h3>Announcements temporarily unavailable</h3><p>Please check back shortly for the latest PulseKRN news and updates.</p></article><article class="news-card"><small>RELEASES</small><h3>Download center available</h3><p>The latest release and version history remain available in the Download Center.</p></article>`;
       }
     }
     loadReleases(); loadNews();
