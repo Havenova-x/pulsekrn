@@ -1,0 +1,19 @@
+{
+  "version": "2.3",
+  "url": "https://github.com/Havenova-x/pulsekrn/releases/download/v2.3/PulseKRN-Setup-v2.3.exe",
+  "sha256": "175f0f691e7199564fd0718d327a0030241a96b2b18b820f6eb366a61c6cf788",
+  "notes": [
+    "News & Updates page: announcements and one-click updates straight from GitHub",
+    "Game Mode page with auto-detect, plus a shutdown timer",
+    "Installer now closes the background app by itself"
+  ],
+  "announcements": [
+    {
+      "id": "2026-10-welcome",
+      "date": "2026-10-06",
+      "level": "info",
+      "title": "Welcome to PulseKRN news",
+      "body": "Announcements from the PulseKRN team will appear here. Update checks run quietly every 6 hours."
+    }
+  ]
+}

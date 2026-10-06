@@ -1,0 +1,41 @@
+<!-- PulseKRN download + news section. Paste anywhere in your website (or save as index.html on GitHub Pages). -->
+<section id="pulsekrn" style="font-family:Consolas,monospace;background:#060a12;color:#d6ecff;padding:24px;border-radius:12px;max-width:760px;margin:auto">
+  <h2 style="color:#00e5ff;margin:0 0 4px">PulseKRN <span id="pk-ver" style="color:#39ff88"></span></h2>
+  <p style="color:#6483a6;margin:0 0 14px">System Command Center for Windows</p>
+  <a id="pk-dl" href="https://github.com/Havenova-x/pulsekrn/releases/latest"
+     style="display:inline-block;background:#39ff88;color:#060a12;font-weight:bold;padding:10px 18px;border-radius:8px;text-decoration:none">Download installer</a>
+  <h3 style="color:#00e5ff;margin:22px 0 6px">What's new</h3>
+  <pre id="pk-notes" style="white-space:pre-wrap;margin:0;color:#d6ecff">Loading...</pre>
+  <h3 style="color:#00e5ff;margin:22px 0 6px">Announcements</h3>
+  <div id="pk-news" style="color:#d6ecff">Loading...</div>
+</section>
+<script>
+(function () {
+  var repo = "Havenova-x/pulsekrn";
+  function el(id) { return document.getElementById(id); }
+  fetch("https://api.github.com/repos/" + repo + "/releases/latest")
+    .then(function (r) { return r.json(); })
+    .then(function (rel) {
+      el("pk-ver").textContent = rel.tag_name || "";
+      el("pk-notes").textContent = rel.body || "See the release page for details.";
+      var a = (rel.assets || []).filter(function (x) { return /\.exe$/i.test(x.name); })[0];
+      if (a) el("pk-dl").href = a.browser_download_url;
+    })
+    .catch(function () { el("pk-notes").textContent = "Could not load release notes."; });
+  fetch("https://raw.githubusercontent.com/" + repo + "/main/latest.json")
+    .then(function (r) { return r.json(); })
+    .then(function (d) {
+      var box = el("pk-news"); box.textContent = "";
+      (d.announcements || []).forEach(function (n) {
+        var h = document.createElement("div");
+        h.style.cssText = "color:" + (n.level === "important" ? "#ffb020" : "#39ff88") + ";margin-top:10px";
+        h.textContent = (n.title || "") + "  " + (n.date || "");
+        var p = document.createElement("div");
+        p.textContent = n.body || "";
+        box.appendChild(h); box.appendChild(p);
+      });
+      if (!box.firstChild) box.textContent = "No announcements right now.";
+    })
+    .catch(function () { el("pk-news").textContent = "Could not load announcements."; });
+})();
+</script>
