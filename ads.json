@@ -4,7 +4,19 @@
       "id": "pulsekrn-home",
       "title": "PulseKRN",
       "body": "Get the latest version, release notes and news.",
-      "link": "https://pulsekrn.vercel.app/"
+      "link": "https://pulsekrn.vercel.app/",
+      "link_label": "OPEN",
+      "link_title": "PulseKRN official website",
+      "link_desc": "Downloads, release notes and the latest news.",
+      "image": "",
+      "level": "info",
+      "date": "2026-10-07",
+      "starts": "2026-10-07",
+      "expires": "2036-12-31",
+      "min_version": "2.3.0",
+      "max_version": "99.0.0",
+      "popup": false,
+      "show": "launch"
     }
   ]
 }

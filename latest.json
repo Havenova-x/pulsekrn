@@ -1,10 +1,14 @@
 {
-  "version": "2.3.1",
-  "url": "https://github.com/Havenova-x/pulsekrn/releases/download/v2.3.1/PulseKRN-Setup-v2.3.1.exe",
-  "sha256": "9ea88d3e1926ad6902c70c1478c077cfbfb5850ca22e54bf0a35fb6c6d06d06b",
+  "version": "2.6.0",
+  "url": "https://github.com/Havenova-x/pulsekrn/releases/download/v2.6.0/PulseKRN-Setup-v2.6.0.exe",
+  "sha256": "PASTE_THE_NEW_HASH_HERE",
   "notes": [
-    "Better announcements: pop-ups with link previews, a top banner and a featured strip",
+    "WELCOME TO THE NEW WORLD",
     "News page lists everything and lets you open the links",
-    "Smaller fixes"
+    "Smaller fixes",
+    "Welcome to PulseKRN 2.6 - your PC's new health companion",
+    "NEW Repair Center: Health Scan with a score and clear next steps, Windows Update repair, Audio, Network, Disk Doctor (100% disk), Battery, Drivers, Crash and blue screen center, Recovery and Bluetooth tools",
+    "Safe by design: diagnose first, repair only what is broken, always ask before changing anything",
+    "Fixed the oversized logo so the window always fits perfectly"
   ]
 }

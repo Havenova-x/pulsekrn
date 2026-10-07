@@ -1,17 +1,40 @@
 {
-  "banner": null,
+  "banner": {
+    "id": "2026-10-banner-v26",
+    "date": "2026-10-07",
+    "level": "info",
+    "title": "PulseKRN 2.6 is here",
+    "body": "Meet the new Repair Center: Health Scan, Windows Update repair, Audio, Network, Disk Doctor, Battery, Drivers, Crashes, Recovery and Bluetooth tools in one place.",
+    "show": "launch",
+    "link": "https://pulsekrn.vercel.app/",
+    "link_label": "SEE WHAT'S NEW",
+    "link_title": "What's new in PulseKRN 2.6",
+    "link_desc": "The full list of new tools and fixes in this release."
+  },
   "announcements": [
     {
       "id": "2026-10-welcome",
       "date": "2026-10-06",
       "level": "info",
       "title": "Welcome to PulseKRN news",
-      "body": "Announcements from the PulseKRN team will pop up here. Update checks run quietly every 3 hours.",
+      "body": "Announcements from the PulseKRN team will pop up here: new features, important fixes and tips for keeping your PC healthy. Update checks run quietly every 3 hours, so you always hear about new versions first.",
       "show": "once",
       "link": "https://pulsekrn.vercel.app/",
       "link_label": "OPEN",
-      "link_title": "PulseKRN on GitHub",
+      "link_title": "PulseKRN official website",
       "link_desc": "Downloads, release notes and the latest news."
+    },
+    {
+      "id": "2026-10-repair-center",
+      "date": "2026-10-07",
+      "level": "info",
+      "title": "New: Repair Center",
+      "body": "Windows Repair is now the Repair Center. Run a Health Scan to get a score and clear next steps, then fix only what is broken. Every repair asks before it changes anything, and nothing is ever removed from Windows.",
+      "show": "once",
+      "link": "https://pulsekrn.vercel.app/",
+      "link_label": "LEARN MORE",
+      "link_title": "Repair Center guide",
+      "link_desc": "What each Repair Center tool does and when to use it."
     }
   ]
 }
