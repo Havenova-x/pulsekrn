@@ -1,14 +1,12 @@
 {
-  "version": "2.6.0",
-  "url": "https://github.com/Havenova-x/pulsekrn/releases/download/v2.6.0/PulseKRN-Setup-v2.6.0.exe",
-  "sha256": "PASTE_THE_NEW_HASH_HERE",
-  "notes": [
-    "WELCOME TO THE NEW WORLD",
-    "News page lists everything and lets you open the links",
-    "Smaller fixes",
-    "Welcome to PulseKRN 2.6 - your PC's new health companion",
-    "NEW Repair Center: Health Scan with a score and clear next steps, Windows Update repair, Audio, Network, Disk Doctor (100% disk), Battery, Drivers, Crash and blue screen center, Recovery and Bluetooth tools",
-    "Safe by design: diagnose first, repair only what is broken, always ask before changing anything",
-    "Fixed the oversized logo so the window always fits perfectly"
-  ]
+    "version":  "2.8.0",
+    "url":  "https://github.com/Havenova-x/pulsekrn/releases/download/v2.8.0/PulseKRN-Setup-v2.8.0.exe",
+    "sha256":  "e6b68682eb5bda19d46a4f5bfa8a409bc1e9d847914efc56f72780b9cfe8b7eb",
+    "notes":  [
+                  "NEW Update Control: block Windows Update for 7, 14 or 30 days (or until you unblock) and turn it back on any time - safe while Windows is installing",
+                  "NEW Lite Mode: turn Windows lite for speed with Normal, Aggressive, Extreme and Ultra Fast levels - every tweak is separate and can be reverted exactly",
+                  "Every change remembers the original setting, so undo puts things back as they were",
+                  "Loading indicators no longer cover the screen, and background work never freezes the window",
+                  "New shortcuts: Ctrl+U for Update Control, F9 for Lite Mode"
+              ]
 }

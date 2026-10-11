@@ -1,14 +1,14 @@
 {
   "banner": {
-    "id": "2026-10-banner-v26",
-    "date": "2026-10-07",
+    "id": "2026-10-banner-v28",
+    "date": "2026-10-11",
     "level": "info",
-    "title": "PulseKRN 2.6 is here",
-    "body": "Meet the new Repair Center: Health Scan, Windows Update repair, Audio, Network, Disk Doctor, Battery, Drivers, Crashes, Recovery and Bluetooth tools in one place.",
+    "title": "PulseKRN 2.8 is here",
+    "body": "New Update Control (block and unblock Windows Update) and Lite Mode to make Windows faster - every change can be undone.",
     "show": "launch",
     "link": "https://pulsekrn.vercel.app/",
     "link_label": "SEE WHAT'S NEW",
-    "link_title": "What's new in PulseKRN 2.6",
+    "link_title": "What's new in PulseKRN 2.8",
     "link_desc": "The full list of new tools and fixes in this release."
   },
   "announcements": [
@@ -35,6 +35,32 @@
       "link_label": "LEARN MORE",
       "link_title": "Repair Center guide",
       "link_desc": "What each Repair Center tool does and when to use it."
+    },
+    {
+      "id": "2026-10-wipe-reset",
+      "date": "2026-10-10",
+      "level": "info",
+      "title": "New: Wipe & Reset",
+      "body": "Pick exactly which files, browser data, saved logins, Wi-Fi networks, app data or accounts to erase. Nothing is selected until you choose it, you confirm before anything is erased, and Windows itself is never touched.",
+      "show": "once",
+      "min_version": "2.7.0",
+      "link": "https://pulsekrn.vercel.app/",
+      "link_label": "LEARN MORE",
+      "link_title": "Wipe & Reset guide",
+      "link_desc": "How Wipe & Reset works and what it can erase."
+    },
+    {
+      "id": "2026-10-lite-updates",
+      "date": "2026-10-11",
+      "level": "info",
+      "title": "New: Lite Mode & Update Control",
+      "body": "Make Windows lighter with Lite Mode (pick a level or single tweaks) and pause Windows Update for a few days when you need speed. Everything PulseKRN changes can be reverted exactly.",
+      "show": "once",
+      "min_version": "2.8.0",
+      "link": "https://pulsekrn.vercel.app/",
+      "link_label": "LEARN MORE",
+      "link_title": "Lite Mode & Update Control",
+      "link_desc": "How they work and how to undo them."
     }
   ]
 }

@@ -1,32 +1,61 @@
-THREE FILES IN YOUR GITHUB REPO (edit them with the pencil icon on github.com, then Commit)
+PULSEKRN - HOW TO EDIT THE 3 FILES  (GitHub: open file > pencil icon > edit > Commit)
+Apps pick up changes at start-up, then every 3 hours.
+ALWAYS paste the file into https://jsonlint.com before Commit.
+JSON rules: every item inside { }, items separated by commas, NO comma after the last item/line, text in "quotes".
 
-latest.json  = the update (version, download link, hash, release notes).  Edit LAST when you release.
-news.json    = the BANNER (top of the app) + ANNOUNCEMENTS (pop-ups and the News page).
-ads.json     = the FEATURED STRIP (slim bar at the bottom, always visible while it has an item).
+RELEASE ORDER:  1) run build.bat  2) upload dist\PulseKRN-Setup-vX.exe to GitHub Releases  3) upload the NEW github\latest.json LAST (replace the old one)
+===========================================================================
 
-Apps pick up changes within a few minutes of the next check (at start-up, then every 3 hours).
+1) latest.json  = THE UPDATE  (WRITTEN BY build.bat - do not edit it by hand)
+---------------------------------------------------------------------------
+"version"   New version number, e.g. "2.6.0". Apps older than this get the update prompt.
+"url"       Direct download link of the installer on GitHub Releases. Must match the uploaded file name.
+"sha256"    Fingerprint of the installer. build.bat calculates it and writes it for you. WRONG HASH = update refused.
+"notes"     Comes from release-notes.txt (one line per note) next to build.bat.
 
------ news.json -----
-"banner": null          -> no banner shows.  Put an item (same fields as below) to show one.
-                           Users can close it with the X. It only comes back if you give it a NEW id.
-"announcements": [ ... ] -> each one pops up (when the app window is open, never while gaming).
+===========================================================================
 
------ fields (news.json items and ads.json items) -----
-id          REQUIRED. Unique name, e.g. "2026-11-sale". Change it to show something again.
-title       Heading.
-body        The message (max ~700 characters).
-date        Shown next to the title, e.g. "2026-11-02".
-level       "info" (blue) | "important" (orange) | "promo" (green)
-show        news.json only.  "once" (default) | "daily" (once a day) | "launch" (each time the app starts)
-            daily/launch popups get a "Don't show again" button so nobody is annoyed.
-popup       news.json only.  false = list it in NEWS only, no popup.
-link        Optional. Must start with https://
-link_label  Button text, e.g. "VISIT"
-link_title  Link preview title.       link_desc  Link preview description.
-image       Optional https picture (PNG/JPG, under 1.5 MB) shown in the popup.
-starts      Optional "2026-11-01"  -> hidden before this day.
-expires     Optional "2026-11-30"  -> hidden after this day. (Use this so old items clean themselves.)
-min_version / max_version   Optional. e.g. "max_version": "2.3.1" -> only people on 2.3.1 or older see it.
+2) news.json  = BANNER (top of app) + ANNOUNCEMENTS (popups + News page)
+---------------------------------------------------------------------------
+"banner"         null = no banner.  Or one item (fields below). User can close it with X; it returns only with a NEW id.
+"announcements"  List of items. Each pops up when the app window is open (never while gaming) and is listed on the News page.
 
-Keep the file valid JSON: every item in { }, items separated by commas, no comma after the last item.
-Paste your file into https://jsonlint.com to check it before you Commit.
+ITEM FIELDS
+id           REQUIRED. Unique name, e.g. "2026-11-sale". Change it to show the item again.
+title        Heading (max ~90 chars).
+body         Message (max ~700 chars).
+date         Text shown next to the title, e.g. "2026-11-02". Display only.
+level        "info" (blue) | "important" (orange) | "promo" (green)
+show         "once" (default) | "daily" (once a day) | "launch" (every app start).
+             daily/launch get a "Don't show again" button.
+popup        false = News page only, no popup. (default true)
+link         Optional. Must start with https://
+link_label   Button text, e.g. "VISIT".
+link_title   Link preview title.
+link_desc    Link preview description.
+image        Optional https picture (PNG/JPG, under 1.5 MB) shown in the popup.
+starts       "2026-11-01" = hidden before this day.
+expires      "2026-11-30" = hidden after this day. Use it so old items clean themselves.
+min_version  Only this version or newer sees it.
+max_version  Only this version or older sees it. e.g. "2.3.1".
+
+===========================================================================
+
+3) ads.json  = FEATURED STRIP (slim bar at the bottom, visible while an item exists)
+---------------------------------------------------------------------------
+Format:  { "ads": [ { item }, { item } ] }      Several ads rotate every ~12 seconds.
+Empty list { "ads": [] } = strip disappears completely.
+
+Uses the same item fields as news.json:
+id (required), title, body, date, level, link, link_label, link_title, link_desc, image,
+starts, expires, min_version, max_version.
+NOT used for ads: show, popup (news.json only).
+
+HIDE AN AD: set "expires" to a past date, push "starts" into the future, or delete the item.
+ADD AN AD: copy a whole { ... } block, add a comma between blocks, give it a NEW id.
+
+===========================================================================
+IMPORTANT
+- Wrong or missing "id" = item ignored.  Links not starting with https:// are ignored.
+- Changing "id" makes an item count as brand new (popups show again, closed banners return).
+- Dates are always YYYY-MM-DD.  "expires" still shows ON that day, hides the day after.
