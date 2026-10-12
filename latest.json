@@ -1,8 +1,11 @@
 {
-    "version":  "2.8.0",
-    "url":  "https://github.com/Havenova-x/pulsekrn/releases/download/v2.8.0/PulseKRN-Setup-v2.8.0.exe",
-    "sha256":  "e6b68682eb5bda19d46a4f5bfa8a409bc1e9d847914efc56f72780b9cfe8b7eb",
+    "version":  "2.8.1",
+    "url":  "https://github.com/Havenova-x/pulsekrn/releases/download/v2.8.1/PulseKRN-Setup-v2.8.1.exe",
+    "sha256":  "9a8f1e3d1a561bfc78dcb55219a2334579741c937c40b7b625e11cc6ee609929",
     "notes":  [
+                  "FIX App could freeze or stay hung in the background - it now recovers by itself, closes fully when you quit, and a frozen copy can no longer block a new launch",
+                  "FIX Background tasks can no longer hang the window; the installer is now a normal folder install (starts faster, no second background process)",
+                  "FIX Simpler updates: the SHA-256 check was removed",
                   "NEW Update Control: block Windows Update for 7, 14 or 30 days (or until you unblock) and turn it back on any time - safe while Windows is installing",
                   "NEW Lite Mode: turn Windows lite for speed with Normal, Aggressive, Extreme and Ultra Fast levels - every tweak is separate and can be reverted exactly",
                   "Every change remembers the original setting, so undo puts things back as they were",

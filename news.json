@@ -1,66 +1,28 @@
 {
   "banner": {
-    "id": "2026-10-banner-v28",
-    "date": "2026-10-11",
+    "id": "2026-10-banner-v28-1",
+    "date": "2026-10-12",
     "level": "info",
-    "title": "PulseKRN 2.8 is here",
+    "title": "PulseKRN 2.8.1 is here",
     "body": "New Update Control (block and unblock Windows Update) and Lite Mode to make Windows faster - every change can be undone.",
     "show": "launch",
     "link": "https://pulsekrn.vercel.app/",
     "link_label": "SEE WHAT'S NEW",
-    "link_title": "What's new in PulseKRN 2.8",
-    "link_desc": "The full list of new tools and fixes in this release."
+    "link_title": "What's new in PulseKRN 2.8.1",
+    "link_desc": "The full list of fixes in this release."
   },
   "announcements": [
     {
-      "id": "2026-10-welcome",
-      "date": "2026-10-06",
+      "id": "2026-10-UPDATE",
+      "date": "2026-10-12",
       "level": "info",
-      "title": "Welcome to PulseKRN news",
-      "body": "Announcements from the PulseKRN team will pop up here: new features, important fixes and tips for keeping your PC healthy. Update checks run quietly every 3 hours, so you always hear about new versions first.",
+      "title": "UPDATE for v2.8.1",
+      "body": "Important bug fixes.",
       "show": "once",
       "link": "https://pulsekrn.vercel.app/",
       "link_label": "OPEN",
       "link_title": "PulseKRN official website",
       "link_desc": "Downloads, release notes and the latest news."
-    },
-    {
-      "id": "2026-10-repair-center",
-      "date": "2026-10-07",
-      "level": "info",
-      "title": "New: Repair Center",
-      "body": "Windows Repair is now the Repair Center. Run a Health Scan to get a score and clear next steps, then fix only what is broken. Every repair asks before it changes anything, and nothing is ever removed from Windows.",
-      "show": "once",
-      "link": "https://pulsekrn.vercel.app/",
-      "link_label": "LEARN MORE",
-      "link_title": "Repair Center guide",
-      "link_desc": "What each Repair Center tool does and when to use it."
-    },
-    {
-      "id": "2026-10-wipe-reset",
-      "date": "2026-10-10",
-      "level": "info",
-      "title": "New: Wipe & Reset",
-      "body": "Pick exactly which files, browser data, saved logins, Wi-Fi networks, app data or accounts to erase. Nothing is selected until you choose it, you confirm before anything is erased, and Windows itself is never touched.",
-      "show": "once",
-      "min_version": "2.7.0",
-      "link": "https://pulsekrn.vercel.app/",
-      "link_label": "LEARN MORE",
-      "link_title": "Wipe & Reset guide",
-      "link_desc": "How Wipe & Reset works and what it can erase."
-    },
-    {
-      "id": "2026-10-lite-updates",
-      "date": "2026-10-11",
-      "level": "info",
-      "title": "New: Lite Mode & Update Control",
-      "body": "Make Windows lighter with Lite Mode (pick a level or single tweaks) and pause Windows Update for a few days when you need speed. Everything PulseKRN changes can be reverted exactly.",
-      "show": "once",
-      "min_version": "2.8.0",
-      "link": "https://pulsekrn.vercel.app/",
-      "link_label": "LEARN MORE",
-      "link_title": "Lite Mode & Update Control",
-      "link_desc": "How they work and how to undo them."
     }
   ]
 }
