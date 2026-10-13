@@ -2,21 +2,35 @@
   "ads": [
     {
       "id": "pulsekrn-home",
-      "title": "PulseKRN",
-      "body": "We Are Here For You.",
+      "title": "PulseKRN 2.8.2",
+      "body": "Rebuilt to be calmer and faster, with Lite Mode, Update Control and a smarter Auto-pilot. Sorry for the earlier trouble - get the latest.",
       "link": "https://pulsekrn.vercel.app/",
       "link_label": "OPEN",
       "link_title": "PulseKRN official website",
       "link_desc": "Downloads, release notes and the latest news.",
       "image": "",
       "level": "info",
-      "date": "2026-10-07",
-      "starts": "2026-10-07",
+      "date": "2026-10-13",
+      "starts": "2026-10-13",
       "expires": "2036-12-31",
       "min_version": "2.3.0",
-      "max_version": "99.0.0",
-      "popup": true,
-      "show": "launch"
+      "max_version": "99.0.0"
+    },
+    {
+      "id": "havenovax-home",
+      "title": "Havenova X",
+      "body": "Everything we have built is on havenovax.vercel.app and is being compiled there. Come and see.",
+      "link": "https://havenovax.vercel.app",
+      "link_label": "VISIT",
+      "link_title": "Havenova X",
+      "link_desc": "All our apps, sites and tools in one place.",
+      "image": "",
+      "level": "promo",
+      "date": "2026-10-13",
+      "starts": "2026-10-13",
+      "expires": "2036-12-31",
+      "min_version": "2.3.0",
+      "max_version": "99.0.0"
     }
   ]
 }

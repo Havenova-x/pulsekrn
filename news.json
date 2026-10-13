@@ -1,28 +1,53 @@
 {
   "banner": {
-    "id": "2026-10-banner-v28-1",
-    "date": "2026-10-12",
+    "id": "2026-10-banner-v282-final",
+    "date": "2026-10-13",
     "level": "info",
-    "title": "PulseKRN 2.8.1 is here",
-    "body": "New Update Control (block and unblock Windows Update) and Lite Mode to make Windows faster - every change can be undone.",
+    "title": "PulseKRN 2.8.2 - calmer, faster, and we are sorry for the trouble",
+    "body": "Earlier builds could lag or freeze. 2.8.2 was rebuilt step by step with Lite Mode, Update Control and a smarter Auto-pilot. Thank you for your patience.",
     "show": "launch",
     "link": "https://pulsekrn.vercel.app/",
     "link_label": "SEE WHAT'S NEW",
-    "link_title": "What's new in PulseKRN 2.8.1",
-    "link_desc": "The full list of fixes in this release."
+    "link_title": "What's new in PulseKRN 2.8.2",
+    "link_desc": "The full list of new features and fixes in this release."
   },
   "announcements": [
     {
-      "id": "2026-10-UPDATE",
-      "date": "2026-10-12",
+      "id": "2026-10-v282-sorry",
+      "date": "2026-10-13",
+      "level": "important",
+      "title": "We are sorry - and here is what we fixed",
+      "body": "Some of you had PulseKRN lag, freeze, or leave several icons in the tray. That should not have happened and we are sorry. What we found and fixed: commands that could wait forever now have a hard time limit; stuck tasks are released; Auto-pilot restarts itself if it stalls; the tray icon is removed whenever PulseKRN closes and QUIT always ends the process; the header and spinner no longer get stuck or cover the screen; settings are saved safely. If anything still goes wrong, open News and press SEND TO SUPPORT: it prepares an email to havenova.x@gmail.com with the app name and error details for you to check and send.",
+      "show": "once",
+      "link": "https://pulsekrn.vercel.app/",
+      "link_label": "RELEASE NOTES",
+      "link_title": "PulseKRN 2.8.2 release notes",
+      "link_desc": "Everything new and everything fixed."
+    },
+    {
+      "id": "2026-10-v282-new",
+      "date": "2026-10-13",
       "level": "info",
-      "title": "UPDATE for v2.8.1",
-      "body": "Important bug fixes.",
+      "title": "New in 2.8.2",
+      "body": "Lite Mode (F9) with four levels and one-click undo. Update Control (Ctrl+U) to pause Windows Update and turn it back on. A smarter Auto-pilot (RAM, timer or both; can start at sign-in). A Repair Center that follows you from tab to tab. Keyboard shortcuts (press F1). Dark title bar and dialogs from the first moment.",
       "show": "once",
       "link": "https://pulsekrn.vercel.app/",
       "link_label": "OPEN",
       "link_title": "PulseKRN official website",
       "link_desc": "Downloads, release notes and the latest news."
+    },
+    {
+      "id": "2026-10-havenovax",
+      "date": "2026-10-13",
+      "level": "promo",
+      "title": "Everything Havenova X has built - in one place",
+      "body": "Everything we have made and ever did is on the Havenova X website, and it is all being compiled there: PulseKRN, our sites and our tools, with their updates and news. Come and have a look.",
+      "show": "once",
+      "popup": false,
+      "link": "https://havenovax.vercel.app",
+      "link_label": "VISIT HAVENOVA X",
+      "link_title": "Havenova X",
+      "link_desc": "All our apps, sites and tools, gathered in one place."
     }
   ]
 }

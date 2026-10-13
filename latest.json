@@ -1,15 +1,24 @@
 {
-    "version":  "2.8.1",
-    "url":  "https://github.com/Havenova-x/pulsekrn/releases/download/v2.8.1/PulseKRN-Setup-v2.8.1.exe",
-    "sha256":  "9a8f1e3d1a561bfc78dcb55219a2334579741c937c40b7b625e11cc6ee609929",
+    "version":  "2.8.2",
+    "url":  "https://github.com/Havenova-x/pulsekrn/releases/download/v2.8.2/PulseKRN-Setup-v2.8.2.exe",
+    "sha256":  "4d8b0fd9d342b055f830b184a599d79055fea8d5d26e8fce78cca6bab3cdef6b",
     "notes":  [
-                  "FIX App could freeze or stay hung in the background - it now recovers by itself, closes fully when you quit, and a frozen copy can no longer block a new launch",
-                  "FIX Background tasks can no longer hang the window; the installer is now a normal folder install (starts faster, no second background process)",
-                  "FIX Simpler updates: the SHA-256 check was removed",
-                  "NEW Update Control: block Windows Update for 7, 14 or 30 days (or until you unblock) and turn it back on any time - safe while Windows is installing",
-                  "NEW Lite Mode: turn Windows lite for speed with Normal, Aggressive, Extreme and Ultra Fast levels - every tweak is separate and can be reverted exactly",
-                  "Every change remembers the original setting, so undo puts things back as they were",
-                  "Loading indicators no longer cover the screen, and background work never freezes the window",
-                  "New shortcuts: Ctrl+U for Update Control, F9 for Lite Mode"
+                  "We are sorry: earlier 2.7 and 2.8 builds could lag, freeze and leave extra PulseKRN icons in the tray. 2.8.2 was rebuilt step by step and checked after every change.",
+                  "FIXED Freezes and lag: every command PulseKRN runs now has a hard time limit, stuck tasks are released, Auto-pilot restarts itself if it stalls, and a freeze report is written to error.log",
+                  "FIXED Extra PulseKRN icons in the tray: the icon is removed every time PulseKRN closes, and QUIT always ends the process",
+                  "FIXED Settings are saved safely, and a damaged settings file can no longer cause problems",
+                  "FIXED The header only shows work you started, the loading spinner never covers the screen, the activity log can no longer push things off screen",
+                  "FIXED Battery health, Disk Doctor speeds, Windows Update reset and the restore point message in Repair Center",
+                  "FIXED White title bar and white message boxes: everything is dark from the moment the window opens",
+                  "NEW Lite Mode (F9): Normal, Aggressive, Extreme and Ultra Fast levels or single tweaks, shows what is ON, REVERT or UNDO EVERYTHING puts the original settings back",
+                  "NEW Update Control (Ctrl+U): block Windows Update for 7, 14 or 30 days or until you unblock it, with one-click unblock and protection while Windows is installing",
+                  "NEW Smarter Auto-pilot: optimise by RAM, by timer or both, choose how often RAM is checked, and optionally close safe updater helpers when RAM is high",
+                  "NEW Auto-pilot can start when you sign in to Windows (one tick box, clearly shown)",
+                  "NEW Repair Center keeps its recommended steps on every tab, OPEN runs the check, finished steps disappear",
+                  "NEW Keyboard shortcuts: F1 help, F5 refresh, Ctrl+1..9, Ctrl+PgUp/PgDn, F9 Lite Mode, Ctrl+U Update Control",
+                  "NEW After you choose administrator once, PulseKRN asks for it again each time you open it (switch it off on the Auto-pilot screen)",
+                  "NEW SEND TO SUPPORT on the News screen opens an email draft to havenova.x@gmail.com with the app name, version and error details filled in (you press Send), plus OPEN ERROR LOG and OPEN DATA FOLDER",
+                  "NEW Every screen scrolls, and the activity log can be hidden (Ctrl+L) and cleared",
+                  "Everything Havenova X has built is being gathered at havenovax.vercel.app"
               ]
 }
